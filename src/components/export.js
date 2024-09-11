@@ -24,7 +24,7 @@ export const property = [
     images: prop1,
     address: "6Downtown, Las Vegas",
     name: "Villa with Amazing View",
-    price: "$ 213.23",
+    price: " ₹17,698.09",
     about:
       "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood",
     bed: 4,
@@ -36,7 +36,7 @@ export const property = [
     images: prop2,
     address: "Meadows Village, Las Vegas",
     name: "Townhouse for Sale",
-    price: "$ 345.18",
+    price: " ₹28,698.09",
     about:
       "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood",
     bed: 4,
@@ -48,7 +48,7 @@ export const property = [
     images: prop3,
     address: "49 DC townhall alex",
     name: "Duplex sea facing for rent",
-    price: "$ 652.18",
+    price: " ₹21,488.89",
     about:
       "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood",
     bed: 4,
@@ -60,7 +60,7 @@ export const property = [
     images: prop4,
     address: "Underground street 20 texax",
     name: "Villa with Side View",
-    price: "$ 876.13",
+    price: " ₹35,890.34",
     about:
       "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood",
     bed: 4,
@@ -72,7 +72,7 @@ export const property = [
     images: prop5,
     address: "Rubari London Hills",
     name: "Awesome villa for rent",
-    price: "$ 341.83",
+    price: " ₹19,854.03",
     about:
       "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood",
     bed: 4,
@@ -84,7 +84,7 @@ export const property = [
     images: prop6,
     address: "Northean fersh alice",
     name: "Street Farm for sale",
-    price: "$ 675.23",
+    price: "18,342.09",
     about:
       "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood",
     bed: 4,
