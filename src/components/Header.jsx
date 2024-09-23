@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink, useLocation } from "react-router-dom"; // Import useLocation
 import { FaXmark, FaBars } from "react-icons/fa6";
 import logo from "../assets/images/logo.png";
 import { useDarkMode } from "./DarkModeContext";
@@ -8,9 +9,9 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const location = useLocation(); // Get current location
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -47,28 +48,43 @@ const Header = () => {
         gap-4 lg:px-20 px-4 py-3 sticky top-0 z-30`}
       >
         <div id="logo">
-          <img
-            src={logo}
-            alt="logo"
-            className="lg:w-[100px] w-[100px] dark:invert"
-          />
+          <RouterLink to="/">
+            <img
+              src={logo}
+              alt="logo"
+              className="lg:w-[100px] w-[100px] dark:invert"
+            />
+          </RouterLink>
         </div>
 
         <ul className="lg:flex justify-center items-center gap-8 hidden">
           {navItems.map(({ link, path }) => (
-            <Link
-              key={path}
-              className="text-black text-[15px] uppercase font-semibold 
-              cursor-pointer px-3 py-2 dark:text-white rounded-lg hover:bg-red-600 
-              hover:text-white"
-              to={link === "Sign Up" ? "#" : path}
-              spy={true}
-              offset={-100}
-              smooth={true}
-              onClick={link === "Sign Up" ? handleSignUpClick : null}
-            >
-              {link}
-            </Link>
+            location.pathname === "/" ? ( // Check if we're on the homepage
+              <ScrollLink
+                key={path}
+                className="text-black text-[15px] uppercase font-semibold 
+                cursor-pointer px-3 py-2 dark:text-white rounded-lg hover:bg-red-600 
+                hover:text-white"
+                to={path}
+                spy={true}
+                offset={-100}
+                smooth={true}
+                onClick={link === "Sign Up" ? handleSignUpClick : null}
+              >
+                {link}
+              </ScrollLink>
+            ) : (
+              <RouterLink
+                key={path}
+                className="text-black text-[15px] uppercase font-semibold 
+                cursor-pointer px-3 py-2 dark:text-white rounded-lg hover:bg-red-600 
+                hover:text-white"
+                to={`/#${path}`} // Redirect back to homepage with section link
+                onClick={link === "Sign Up" ? handleSignUpClick : null}
+              >
+                {link}
+              </RouterLink>
+            )
           ))}
         </ul>
 
@@ -97,17 +113,28 @@ const Header = () => {
         >
           <ul className="flex flex-col justify-center items-center gap-2 w-full">
             {navItems.map(({ link, path }) => (
-              <Link
-                key={path}
-                className="text-white uppercase font-semibold cursor-pointer p-3 rounded-lg hover:bg-red-600 hover:text-black w-full text-center"
-                to={path}
-                spy={true}
-                offset={-100}
-                smooth={true}
-                onClick={link === "Sign Up" ? handleSignUpClick : null}
-              >
-                {link}
-              </Link>
+              location.pathname === "/" ? (
+                <ScrollLink
+                  key={path}
+                  className="text-white uppercase font-semibold cursor-pointer p-3 rounded-lg hover:bg-red-600 hover:text-black w-full text-center"
+                  to={path}
+                  spy={true}
+                  offset={-100}
+                  smooth={true}
+                  onClick={link === "Sign Up" ? handleSignUpClick : null}
+                >
+                  {link}
+                </ScrollLink>
+              ) : (
+                <RouterLink
+                  key={path}
+                  className="text-white uppercase font-semibold cursor-pointer p-3 rounded-lg hover:bg-red-600 hover:text-black w-full text-center"
+                  to={`/#${path}`}
+                  onClick={link === "Sign Up" ? handleSignUpClick : null}
+                >
+                  {link}
+                </RouterLink>
+              )
             ))}
           </ul>
         </div>

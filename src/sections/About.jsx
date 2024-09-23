@@ -32,7 +32,7 @@ const About = () => {
       <div className='flex flex-col justify-center items-start gap-8'>
         <h1 data-aos="zoom-in" className='text-red-500 dark:text-white'>What We Do
         </h1>
-        <h1 data-aos="zoom-in" data-aos-delay="200" className='text-black text-[40px]
+        <h1  className='text-black text-[40px]
         font-semibold leading-10 dark:text-white'>
           We help clients buy and sell houses since 1987
         </h1>
